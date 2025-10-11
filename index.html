@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doe Sangue</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="icon/icon-removed.jpg" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+
+    <header>
+        <div class="header-inner">
+            <nav class="navegacao">
+                <ul>
+                    <li><a href="orientacoes.html">Orientações</a></li>
+                    <li><a href="porque.html">Por que doar sangue?</a></li>
+                    <li><a href="sobre-nos.html">Sobre nós</a></li>
+                    <li><a href="contato.html">Fale conosco</a></li>
+                </ul>
+            </nav>
+
+            <h1 class="titulo-banner">Faça sua parte e contribua!</h1>
+        </div>
+    </header>
+
+    <section>
+        <img src="imagens/imagem2.jpg" alt="imagem para decoração">
+    </section>
+
+    <div class="container">
+        <p>Doar sangue é um ato de amor que salva vidas! Sua doação pode fazer a diferença na vida de alguém que
+            precisa de transfusões sanguíneas, seja em casos de emergências, cirurgias ou tratamentos médicos. <br><br>
+            Além
+            de
+            ajudar outras pessoas, doar sangue também traz benefícios para a sua própria saúde, como a renovação das
+            células
+            sanguíneas e a redução do risco de doenças cardíacas. <br><br> Seja um herói anônimo e faça a diferença na
+            vida
+            de
+            muitas pessoas. <br><br> Doe sangue regularmente e ajude a salvar vidas!</p>
+    </div>
+
+    <br>
+
+    <div class="botao">
+        <button id="btnDoar">Quero Doar!</button>
+    </div>
+
+    <div id="mensagem" class="oculto">
+        <i class="fas fa-tint"></i>
+        Obrigado por se interessar em doar sangue! 🩸❤️
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>
+        const botao = document.getElementById("btnDoar");
+        const mensagem = document.getElementById("mensagem");
+
+        botao.addEventListener("click", function () {
+            mensagem.classList.add("show");
+
+            setTimeout(function () {
+                mensagem.classList.remove("show");
+            }, 3000);
+        });
+    </script>
+
+    <footer>
+        <i class="fas_fa-tint"></i> Doe Sangue, Salve Vidas
+        <br>
+        &copy; 2024 Doe Sangue. Todos os direitos reservados.
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientações</title>
+    <link rel="stylesheet" href="orientacoes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>O que devo fazer e como fazer?</h1>
+        <!-- Ícone de gota que volta para a homepage -->
+        <a href="index.html" class="voltar-home">
+            <i class="fas fa-tint fa-2x"></i>
+            <span>Homepage</span>
+        </a>
+
+        <!-- Navegação -->
+        <nav class="navegacao-orientacoes">
+            <menu>
+                <ul><a href="orientacoes.html">Orientações</a></ul>
+                <ul><a href="porque.html">Por que doar sangue?</a></ul>
+                <ul><a href="sobre-nos.html">Sobre nós</a></ul>
+                <ul><a href="contato.html">Fale conosco</a></ul>
+            </menu>
+        </nav>
+
+        <!-- Título / mensagem do banner -->
+        <h1 class="titulo-banner">Faça sua parte e contribua!</h1>
+    </header>
+
+    <div id="orientacao">
+        <div id="requisitos">
+            <h2>1. Requisitos básicos para doar sangue</h2> <br>
+            <li>Ter entre 16 e 69 anos (menores de 18 precisam de autorização dos responsáveis).</li>
+            <li>Pesar no mínimo 50 kg.</li>
+            <li>Estar em bom estado de saúde.</li>
+            <li>Ter dormido no mínimo 6 horas na noite anterior.</li>
+            <li>Estar alimentado, evitando alimentos gordurosos nas 4 horas antes da doação.</li>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const requisitos = document.getElementById('requisitos');
+
+            // Remove a classe (garantindo que ele volte pro estado inicial)
+            requisitos.classList.remove('mostrar');
+
+            // Aguarda um pequeno tempo para forçar o navegador a reconhecer a mudança
+            setTimeout(function () {
+                requisitos.classList.add('mostrar');
+            }, 100); // 100 milissegundos é suficiente
+        });
+    </script>
+    
+</body>
+
+</html>
