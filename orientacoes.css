@@ -51,23 +51,4 @@ menu {
   justify-content: center;
 }
 
-#requisitos {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #fff;
-  padding: 15px 25px;
-  border-radius: 8px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-}
-
-#requisitos.mostrar {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-
 
