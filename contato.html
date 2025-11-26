@@ -1,15 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fale conosco</title>
+    <title>Fale conosco - Doe Sangue</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="contato.css">
-
 </head>
+
 <body>
+    <!-- ===== CABEÇALHO COM IMAGEM DE FUNDO ===== -->
     <header>
         <h1>Fale conosco</h1>
+
+        <!-- Botão voltar para homepage -->
+        <a href="index.html" class="voltar-home">
+            <i class="fas fa-tint fa-2x"></i>
+            <span>Homepage</span>
+        </a>
+
+        <!-- Navegação -->
+        <nav class="navegacao-contato">
+            <menu>
+                <ul><a href="orientacoes.html">Orientações</a></ul>
+                <ul><a href="porque.html">Por que doar sangue?</a></ul>
+                <ul><a href="sobre-nos.html">Sobre nós</a></ul>
+                <ul><a href="contato.html">Fale conosco</a></ul>
+            </menu>
+        </nav>
+
+        <!-- Título do banner -->
+        <h1 class="titulo-banner">Faça sua parte e contribua!</h1>
     </header>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <div class="conteudo-principal">
+
+        <!-- Introdução -->
+        <div class="introducao">
+            <h2><i class="fas fa-envelope"></i> Entre em contato</h2>
+            <p>
+                Tem dúvidas, sugestões ou quer saber mais sobre doação de sangue?
+                Preencha o formulário abaixo e entraremos em contato o mais breve possível!
+            </p>
+        </div>
+
+        <!-- Formulário de Contato -->
+        <div class="formulario-contato">
+            <h2><i class="fas fa-paper-plane"></i> Envie sua mensagem</h2>
+            <form id="formContato">
+                <div class="form-group">
+                    <label for="nome">
+                        <i class="fas fa-user"></i> Nome completo:
+                    </label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i> E-mail:
+                    </label>
+                    <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">
+                        <i class="fas fa-phone"></i> Telefone (opcional):
+                    </label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="form-group">
+                    <label for="assunto">
+                        <i class="fas fa-tag"></i> Assunto:
+                    </label>
+                    <input type="text" id="assunto" name="assunto" placeholder="Sobre o que você quer falar?" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">
+                        <i class="fas fa-comment-dots"></i> Mensagem:
+                    </label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..."
+                        required></textarea>
+                </div>
+
+                <div class="botao-enviar">
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i> Enviar mensagem
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Informações de Contato -->
+        <div class="info-contato">
+            <h2><i class="fas fa-address-card"></i> Outras formas de contato</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Telefone</h3>
+                    <p>(44) 3621-XXXX</p>
+                    <p><small>Horário: Seg-Sex, 8h-18h</small></p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>E-mail</h3>
+                    <p><a href="mailto:contato@doesangue.ufsc.br">contato@doesangue.ufsc.br</a></p>
+                    <p><small>Resposta em até 48h</small></p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Localização</h3>
+                    <p>UFSC - Campus Florianópolis</p>
+                    <p><small>Santa Catarina, Brasil</small></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq">
+            <h2><i class="fas fa-question-circle"></i> Perguntas Frequentes</h2>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-clock"></i> Quanto tempo leva para receber resposta?</h3>
+                <p>Normalmente respondemos em até 48 horas úteis. Em casos urgentes, entre em contato por telefone.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-hospital"></i> Vocês são um hemocentro?</h3>
+                <p>Não, somos um projeto educacional da UFSC. Para doar, procure os hemocentros e bancos de sangue da
+                    sua região.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-hand-holding-heart"></i> Como posso ajudar o projeto?</h3>
+                <p>Você pode divulgar o site, compartilhar informações sobre doação de sangue e, claro, se tornar um
+                    doador regular!</p>
+            </div>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-shield-alt"></i> Meus dados estão seguros?</h3>
+                <p>Sim! Tratamos todas as informações com confidencialidade e não compartilhamos seus dados com
+                    terceiros.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mensagem de Sucesso -->
+    <div class="mensagem-sucesso" id="mensagemSucesso">
+        <i class="fas fa-check-circle"></i>
+        <span>Mensagem enviada com sucesso! Entraremos em contato em breve. ✉️</span>
+    </div>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer>
+        <i class="fas fa-tint"></i> Doe Sangue, Salve Vidas
+        <br>
+        &copy; 2024 Doe Sangue - Projeto UFSC. Todos os direitos reservados.
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // Formulário de contato
+        document.getElementById('formContato').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Mostra mensagem de sucesso
+            const mensagem = document.getElementById('mensagemSucesso');
+            mensagem.classList.add('show');
+
+            // Remove a mensagem após 4 segundos
+            setTimeout(() => {
+                mensagem.classList.remove('show');
+            }, 4000);
+
+            // Limpa o formulário
+            this.reset();
+        });
+
+        // Animação dos cards ao entrar na viewport
+        document.addEventListener('DOMContentLoaded', function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Prepara e observa os cards
+            document.querySelectorAll('.info-card, .faq-item').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease-out';
+                observer.observe(card);
+            });
+        });
+
+        // Máscara para telefone
+        document.getElementById('telefone').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+
+            if (value.length > 10) {
+                value = value.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            } else if (value.length > 6) {
+                value = value.replace(/^(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+            } else if (value.length > 2) {
+                value = value.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+            } else {
+                value = value.replace(/^(\d*)/, '($1');
+            }
+
+            e.target.value = value;
+        });
+    </script>
 </body>
+
 </html>
