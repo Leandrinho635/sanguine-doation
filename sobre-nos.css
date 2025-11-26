@@ -1,15 +1,406 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
-  padding: 20px;
-  margin: 0;
-  padding: 0;
-}
+ body {
+   font-family: 'Roboto', Arial, sans-serif;
+   background-color: #f4f4f4;
+   color: #333;
+   line-height: 1.6;
+ }
+
+ h1,
+ h2,
+ h3 {
+   font-family: 'Montserrat', sans-serif;
+ }
+
+ /* ===== HEADER COM IMAGEM DE FUNDO ===== */
+ header {
+   width: 100%;
+   min-height: 300px;
+   position: relative;
+   background: url('imagens/banner.jpg') no-repeat center top;
+   background-size: cover;
+   color: white;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 20px;
+ }
+
+ header::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   background-color: rgba(4, 1, 15, 0.6);
+   z-index: 0;
+ }
+
+ header * {
+   position: relative;
+   z-index: 1;
+ }
+
+ header h1:first-child {
+   font-size: 36px;
+   margin-bottom: 20px;
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+   text-align: center;
+ }
+
+ /* ===== BOTÃO VOLTAR ===== */
+ .voltar-home {
+   position: absolute;
+   top: 20px;
+   left: 20px;
+   font-size: 18px;
+   color: white;
+   text-decoration: none;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   transition: all 0.3s ease;
+   padding: 8px 16px;
+   border-radius: 8px;
+   background-color: rgba(255, 255, 255, 0.1);
+ }
+
+ .voltar-home:hover {
+   background-color: rgba(255, 255, 255, 0.2);
+   transform: translateX(-3px);
+   color: white;
+ }
+
+ .voltar-home i {
+   font-size: 24px;
+ }
+
+ /* ===== NAVEGAÇÃO ===== */
+ .navegacao-sobre {
+   margin: 20px 0;
+ }
+
+ .navegacao-sobre menu {
+   display: flex;
+   gap: 30px;
+   list-style: none;
+   flex-wrap: wrap;
+   justify-content: center;
+   padding: 0;
+ }
+
+ .navegacao-sobre ul {
+   list-style: none;
+ }
+
+ .navegacao-sobre a {
+   text-decoration: none;
+   color: white;
+   font-weight: bold;
+   font-size: 16px;
+   transition: all 0.3s;
+   padding: 8px 16px;
+   border-radius: 4px;
+   display: block;
+ }
+
+ .navegacao-sobre a:hover {
+   background-color: rgba(255, 255, 255, 0.2);
+ }
+
+ /* ===== TÍTULO BANNER ===== */
+ .titulo-banner {
+   font-size: 32px;
+   text-align: center;
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+   margin-top: 20px;
+ }
+
+ /* ===== CONTEÚDO PRINCIPAL ===== */
+ .conteudo-principal {
+   max-width: 1000px;
+   margin: 50px auto;
+   padding: 20px;
+ }
+
+ /* ===== SEÇÃO APRESENTAÇÃO ===== */
+ .apresentacao {
+   background-color: white;
+   padding: 40px;
+   border-radius: 12px;
+   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+   margin-bottom: 40px;
+   animation: fadeIn 0.8s ease-out;
+ }
+
+ @keyframes fadeIn {
+   from {
+     opacity: 0;
+     transform: translateY(20px);
+   }
+
+   to {
+     opacity: 1;
+     transform: translateY(0);
+   }
+ }
+
+ .apresentacao h2 {
+   color: #E63946;
+   font-size: 28px;
+   margin-bottom: 20px;
+   text-align: center;
+ }
+
+ .apresentacao p {
+   font-size: 17px;
+   color: #555;
+   line-height: 1.8;
+   margin-bottom: 15px;
+   text-align: justify;
+ }
+
+ .apresentacao .destaque {
+   background: linear-gradient(135deg, #fff5f6 0%, #ffe5e8 100%);
+   padding: 20px;
+   border-radius: 8px;
+   border-left: 5px solid #E63946;
+   margin: 25px 0;
+   font-style: italic;
+ }
+
+ /* ===== SEÇÃO UNIVERSIDADE ===== */
+ .universidade {
+   background: linear-gradient(135deg, #fff5f6 0%, #ffe5e8 100%);
+   padding: 40px;
+   border-radius: 12px;
+   border: 2px solid #E63946;
+   margin-bottom: 40px;
+ }
+
+ .universidade h2 {
+   color: #E63946;
+   font-size: 24px;
+   margin-bottom: 20px;
+   text-align: center;
+ }
+
+ .universidade p {
+   font-size: 16px;
+   color: #555;
+   line-height: 1.8;
+   margin-bottom: 15px;
+   text-align: justify;
+ }
+
+ .universidade .logo-ufsc {
+   text-align: center;
+   margin: 20px 0;
+   font-size: 48px;
+   color: #E63946;
+ }
+
+ /* ===== MISSÃO, VISÃO E VALORES ===== */
+ .mvv-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   gap: 25px;
+   margin-bottom: 40px;
+ }
+
+ .mvv-card {
+   background: white;
+   padding: 35px 25px;
+   border-radius: 12px;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+   transition: all 0.3s ease;
+   border-top: 4px solid #E63946;
+ }
+
+ .mvv-card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 8px 25px rgba(230, 57, 70, 0.2);
+ }
+
+ .mvv-card i {
+   font-size: 42px;
+   color: #E63946;
+   margin-bottom: 15px;
+   display: block;
+ }
+
+ .mvv-card h3 {
+   color: #E63946;
+   font-size: 22px;
+   margin-bottom: 15px;
+ }
+
+ .mvv-card p {
+   color: #666;
+   font-size: 16px;
+   line-height: 1.7;
+ }
+
+ /* ===== VALORES ===== */
+ .valores {
+   background-color: white;
+   padding: 40px;
+   border-radius: 12px;
+   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+   margin-bottom: 40px;
+ }
+
+ .valores h2 {
+   color: #E63946;
+   font-size: 24px;
+   margin-bottom: 30px;
+   text-align: center;
+   padding-bottom: 15px;
+   border-bottom: 3px solid #E63946;
+ }
+
+ .valores-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+   gap: 25px;
+   margin-top: 30px;
+ }
+
+ .valor-card {
+   background: #f8f9fa;
+   padding: 30px 20px;
+   border-radius: 12px;
+   text-align: center;
+   transition: all 0.3s ease;
+   border: 2px solid transparent;
+ }
+
+ .valor-card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 8px 20px rgba(230, 57, 70, 0.2);
+   border-color: #E63946;
+ }
+
+ .valor-card i {
+   font-size: 48px;
+   color: #E63946;
+   margin-bottom: 15px;
+ }
+
+ .valor-card h3 {
+   color: #E63946;
+   margin-bottom: 10px;
+   font-size: 20px;
+ }
+
+ .valor-card p {
+   color: #666;
+   font-size: 15px;
+   line-height: 1.6;
+ }
+
+ /* ===== EQUIPE ===== */
+ .equipe {
+   background-color: white;
+   padding: 40px;
+   border-radius: 12px;
+   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+ }
+
+ .equipe h2 {
+   color: #E63946;
+   font-size: 24px;
+   margin-bottom: 30px;
+   text-align: center;
+ }
+
+ .equipe-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 25px;
+   margin-top: 30px;
+ }
+
+ .membro {
+   background: #f8f9fa;
+   padding: 30px 20px;
+   border-radius: 12px;
+   text-align: center;
+   transition: all 0.3s ease;
+ }
+
+ .membro:hover {
+   background: #fff5f6;
+   transform: translateY(-3px);
+ }
+
+ .membro i {
+   font-size: 60px;
+   color: #E63946;
+   margin-bottom: 15px;
+ }
+
+ .membro h3 {
+   color: #333;
+   margin-bottom: 5px;
+   font-size: 18px;
+ }
+
+ .membro p {
+   color: #666;
+   font-size: 14px;
+ }
+
+ /* ===== FOOTER ===== */
+ footer {
+   background: #333;
+   color: white;
+   text-align: center;
+   padding: 30px 20px;
+   margin-top: 50px;
+ }
+
+ footer i {
+   color: #E63946;
+ }
+
+ /* ===== RESPONSIVIDADE ===== */
+ @media (max-width: 768px) {
+   header h1:first-child {
+     font-size: 28px;
+   }
+
+   .titulo-banner {
+     font-size: 24px;
+   }
+
+   .navegacao-sobre menu {
+     gap: 15px;
+   }
+
+   .navegacao-sobre a {
+     font-size: 14px;
+     padding: 6px 12px;
+   }
+
+   .apresentacao,
+   .universidade,
+   .valores,
+   .equipe {
+     padding: 25px;
+   }
+
+   .mvv-grid,
+   .valores-grid,
+   .equipe-grid {
+     grid-template-columns: 1fr;
+   }
+
+   .voltar-home span {
+     display: none;
+   }
+ }
