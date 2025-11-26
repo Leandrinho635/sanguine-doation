@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doe Sangue</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="icon" href="icon/icon-removed.jpg" type="image/png">
+    <title>Por que doar sangue? - Doe Sangue</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-
-
+    <!-- ===== CABEÇALHO COM IMAGEM DE FUNDO ===== -->
     <header>
         <div class="header-inner">
+            <!-- Navegação -->
             <nav class="navegacao">
                 <ul>
                     <li><a href="orientacoes.html">Orientações</a></li>
@@ -25,40 +25,98 @@
                 </ul>
             </nav>
 
+            <!-- Título principal -->
             <h1 class="titulo-banner">Faça sua parte e contribua!</h1>
         </div>
     </header>
 
+    <!-- ===== SEÇÃO DE IMAGEM DECORATIVA ===== -->
     <section>
-        <img src="imagens/imagem2.jpg" alt="imagem para decoração">
+        <img src="imagens/imagem2.jpg" alt="Doação de sangue - imagem ilustrativa">
     </section>
 
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
     <div class="container">
-        <p>Doar sangue é um ato de amor que salva vidas! Sua doação pode fazer a diferença na vida de alguém que
-            precisa de transfusões sanguíneas, seja em casos de emergências, cirurgias ou tratamentos médicos. <br><br>
-            Além
-            de
-            ajudar outras pessoas, doar sangue também traz benefícios para a sua própria saúde, como a renovação das
-            células
-            sanguíneas e a redução do risco de doenças cardíacas. <br><br> Seja um herói anônimo e faça a diferença na
-            vida
-            de
-            muitas pessoas. <br><br> Doe sangue regularmente e ajude a salvar vidas!</p>
+        <p>
+            Doar sangue é um ato de amor que salva vidas! Sua doação pode fazer a diferença na vida de alguém que
+            precisa de transfusões sanguíneas, seja em casos de emergências, cirurgias ou tratamentos médicos.
+        </p>
+        <br><br>
+        <p>
+            Além de ajudar outras pessoas, doar sangue também traz benefícios para a sua própria saúde, como a renovação das
+            células sanguíneas e a redução do risco de doenças cardíacas.
+        </p>
+        <br><br>
+        <p>
+            Seja um herói anônimo e faça a diferença na vida de muitas pessoas. Doe sangue regularmente e ajude a salvar vidas!
+        </p>
     </div>
 
-    <br>
+    <!-- ===== CARDS INFORMATIVOS ===== -->
+    <div class="cards-info">
+        <div class="card-info">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h3>Simples e Rápido</h3>
+            <p>O processo de doação leva apenas 10-15 minutos</p>
+        </div>
+        <div class="card-info">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Totalmente Seguro</h3>
+            <p>Materiais estéreis e descartáveis garantem sua segurança</p>
+        </div>
+        <div class="card-info">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Salva Vidas</h3>
+            <p>Uma doação pode salvar até 4 vidas</p>
+        </div>
+    </div>
 
+    <!-- ===== BOTÃO PRINCIPAL ===== -->
     <div class="botao">
-        <button id="btnDoar">Quero Doar!</button>
+        <button id="btnDoar">
+            <i class="fas fa-tint"></i> Quero Doar!
+        </button>
     </div>
 
-    <div id="mensagem" class="oculto">
+    <!-- ===== SEÇÃO DE DESTAQUES ===== -->
+    <div class="destaques">
+        <h2>Por que sua doação é importante?</h2>
+        <div class="destaques-grid">
+            <div class="destaque-item">
+                <div class="numero">1.8%</div>
+                <div class="texto">da população brasileira doa sangue</div>
+            </div>
+            <div class="destaque-item">
+                <div class="numero">3x</div>
+                <div class="texto">por ano você pode doar</div>
+            </div>
+            <div class="destaque-item">
+                <div class="numero">4</div>
+                <div class="texto">vidas salvas por doação</div>
+            </div>
+            <div class="destaque-item">
+                <div class="numero">100%</div>
+                <div class="texto">gratuito e voluntário</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MENSAGEM DE CONFIRMAÇÃO ===== -->
+    <div id="mensagem">
         <i class="fas fa-tint"></i>
-        Obrigado por se interessar em doar sangue! 🩸❤️
+        <span>Obrigado por se interessar em doar sangue! 🩸❤️</span>
     </div>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- ===== RODAPÉ ===== -->
+    <footer>
+        <i class="fas fa-tint"></i> Doe Sangue, Salve Vidas
+        <br>
+        &copy; 2024 Doe Sangue. Todos os direitos reservados.
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
     <script>
+        // Botão "Quero Doar"
         const botao = document.getElementById("btnDoar");
         const mensagem = document.getElementById("mensagem");
 
@@ -69,14 +127,29 @@
                 mensagem.classList.remove("show");
             }, 3000);
         });
+
+        // Animação dos cards ao entrar na viewport
+        document.addEventListener('DOMContentLoaded', function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Observa os cards
+            document.querySelectorAll('.card-info, .destaque-item').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease-out';
+                observer.observe(card);
+            });
+        });
     </script>
-
-    <footer>
-        <i class="fas_fa-tint"></i> Doe Sangue, Salve Vidas
-        <br>
-        &copy; 2024 Doe Sangue. Todos os direitos reservados.
-    </footer>
-
 </body>
 
 </html>
