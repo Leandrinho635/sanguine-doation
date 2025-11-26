@@ -9,12 +9,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
+</head>
+
 <body>
+    <!-- ===== CABEÇALHO ===== -->
     <header>
         <h1>O que devo fazer e como fazer?</h1>
-        <!-- Ícone de gota que volta para a homepage -->
+
+        <!-- Botão voltar para homepage -->
         <a href="index.html" class="voltar-home">
-            <i class="fas fa-tint fa-2x"></i>
+            <i class="fas fa-tint"></i>
             <span>Homepage</span>
         </a>
 
@@ -28,20 +32,99 @@
             </menu>
         </nav>
 
-        <!-- Título / mensagem do banner -->
+        <!-- Título do banner -->
         <h1 class="titulo-banner">Faça sua parte e contribua!</h1>
     </header>
 
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
     <div id="orientacao">
+        <!-- Requisitos básicos -->
         <div id="requisitos">
-            <h2>1. Requisitos básicos para doar sangue</h2> <br>
-            <li>Ter entre 16 e 69 anos (menores de 18 precisam de autorização dos responsáveis).</li>
-            <li>Pesar no mínimo 50 kg.</li>
-            <li>Estar em bom estado de saúde.</li>
-            <li>Ter dormido no mínimo 6 horas na noite anterior.</li>
-            <li>Estar alimentado, evitando alimentos gordurosos nas 4 horas antes da doação.</li>
+            <h2><i class="fas fa-clipboard-check"></i> 1. Requisitos básicos para doar sangue</h2>
+            <ul>
+                <li>Ter entre 16 e 69 anos (menores de 18 precisam de autorização dos responsáveis)</li>
+                <li>Pesar no mínimo 50 kg</li>
+                <li>Estar em bom estado de saúde</li>
+                <li>Ter dormido no mínimo 6 horas na noite anterior</li>
+                <li>Estar alimentado, evitando alimentos gordurosos nas 4 horas antes da doação</li>
+            </ul>
+        </div>
+
+        <!-- Passo a passo da doação -->
+        <div class="passo-passo">
+            <h2><i class="fas fa-route"></i> Passo a passo da doação</h2>
+            <div class="passos-grid">
+                <div class="passo-card">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>1. Cadastro</h3>
+                    <p>Apresente documento com foto e preencha a ficha de cadastro</p>
+                </div>
+                <div class="passo-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <h3>2. Triagem</h3>
+                    <p>Avaliação de sinais vitais e entrevista sobre seu estado de saúde</p>
+                </div>
+                <div class="passo-card">
+                    <i class="fas fa-tint"></i>
+                    <h3>3. Doação</h3>
+                    <p>Coleta do sangue, que dura cerca de 10 a 15 minutos</p>
+                </div>
+                <div class="passo-card">
+                    <i class="fas fa-cookie-bite"></i>
+                    <h3>4. Lanche</h3>
+                    <p>Hidratação e alimentação após a doação</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dicas importantes -->
+        <div class="dicas-importantes">
+            <h2><i class="fas fa-lightbulb"></i> Dicas importantes</h2>
+            <ul>
+                <li>Beba bastante água antes e após a doação</li>
+                <li>Não vá em jejum - faça uma refeição leve</li>
+                <li>Evite bebidas alcoólicas nas 12 horas antes da doação</li>
+                <li>Evite fumar por 2 horas após a doação</li>
+                <li>Descanse por 15 minutos após doar</li>
+                <li>Evite esforços físicos nas 12 horas seguintes</li>
+            </ul>
         </div>
     </div>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer>
+        <i class="fas fa-tint"></i> Doe Sangue, Salve Vidas
+        <br>
+        &copy; 2024 Doe Sangue. Todos os direitos reservados.
+    </footer>
+
+    <!-- ===== SCRIPT DE ANIMAÇÃO ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animação suave ao carregar a página
+            const requisitos = document.getElementById('requisitos');
+
+            // Garante que a animação aconteça
+            setTimeout(function () {
+                requisitos.style.opacity = '1';
+            }, 100);
+
+            // Anima os cards de passo a passo quando ficam visíveis
+            const cards = document.querySelectorAll('.passo-card');
+
+            const observador = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.animation = `slideUp 0.6s ease-out`;
+                        }, index * 100);
+                    }
+                });
+            });
+
+            cards.forEach(card => observador.observe(card));
+        });
+    </script>
 </body>
 
 </html>
