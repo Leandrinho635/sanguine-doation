@@ -1,17 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Por que doar sangue?</title>
     <link rel="stylesheet" href="porque.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
+
 <body>
+    <!-- ===== CABEÇALHO COM IMAGEM DE FUNDO ===== -->
     <header>
-        <h1>
-            Doar sangue é um ato de amor que salva vidas!
-        </h1>
+        <h1>Doar sangue é um ato de amor que salva vidas!</h1>
+
+        <!-- Botão voltar para homepage -->
+        <a href="index.html" class="voltar-home">
+            <i class="fas fa-tint fa-2x"></i>
+            <span>Homepage</span>
+        </a>
+
+        <!-- Navegação -->
+        <nav class="navegacao-porque">
+            <menu>
+                <ul><a href="orientacoes.html">Orientações</a></ul>
+                <ul><a href="porque.html">Por que doar sangue?</a></ul>
+                <ul><a href="sobre-nos.html">Sobre nós</a></ul>
+                <ul><a href="contato.html">Fale conosco</a></ul>
+            </menu>
+        </nav>
+
+        <!-- Título do banner -->
+        <h1 class="titulo-banner">Faça sua parte e contribua!</h1>
     </header>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <div class="conteudo-principal">
+
+        <!-- Seção Introdução -->
+        <div class="introducao">
+            <h2>Por que doar sangue é tão importante?</h2>
+            <p>O sangue é essencial para a vida e não pode ser fabricado artificialmente. Cada doação pode salvar até
+                quatro vidas e é fundamental para diversos tratamentos médicos e situações de emergência.</p>
+            <span class="destaque">Uma única doação pode salvar até 4 vidas! 🩸</span>
+        </div>
+
+        <!-- Seção Quem Precisa -->
+        <div class="quem-precisa">
+            <h2><i class="fas fa-hand-holding-heart"></i> Quem precisa de transfusões?</h2>
+            <div class="situacoes-grid">
+                <div class="situacao-card">
+                    <i class="fas fa-ambulance"></i>
+                    <h3>Emergências</h3>
+                    <p>Vítimas de acidentes, traumas graves e hemorragias necessitam de transfusões urgentes</p>
+                </div>
+                <div class="situacao-card">
+                    <i class="fas fa-user-injured"></i>
+                    <h3>Cirurgias</h3>
+                    <p>Pacientes em procedimentos cirúrgicos complexos e transplantes de órgãos</p>
+                </div>
+                <div class="situacao-card">
+                    <i class="fas fa-ribbon"></i>
+                    <h3>Tratamentos</h3>
+                    <p>Pessoas com câncer, anemia falciforme, talassemia e outras doenças crônicas</p>
+                </div>
+                <div class="situacao-card">
+                    <i class="fas fa-baby"></i>
+                    <h3>Gestantes</h3>
+                    <p>Mulheres com complicações durante a gravidez ou no parto</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção Benefícios -->
+        <div class="beneficios">
+            <h2><i class="fas fa-heart-pulse"></i> Benefícios para quem doa</h2>
+            <ul class="beneficios-lista">
+                <li>
+                    <i class="fas fa-stethoscope"></i>
+                    <span><strong>Check-up de saúde gratuito:</strong> A cada doação você faz exames completos de
+                        sangue</span>
+                </li>
+                <li>
+                    <i class="fas fa-sync-alt"></i>
+                    <span><strong>Renovação das células sanguíneas:</strong> Estímulo à produção de novas células</span>
+                </li>
+                <li>
+                    <i class="fas fa-heartbeat"></i>
+                    <span><strong>Saúde cardiovascular:</strong> Redução do risco de doenças do coração</span>
+                </li>
+                <li>
+                    <i class="fas fa-burn"></i>
+                    <span><strong>Queima de calorias:</strong> Uma doação queima aproximadamente 650 calorias</span>
+                </li>
+                <li>
+                    <i class="fas fa-smile-beam"></i>
+                    <span><strong>Bem-estar emocional:</strong> Sensação de realização por ajudar o próximo</span>
+                </li>
+                <li>
+                    <i class="fas fa-hands-helping"></i>
+                    <span><strong>Contribuição social:</strong> Você se torna um herói anônimo e salva vidas</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Seção Impacto -->
+        <div class="impacto">
+            <h2><i class="fas fa-chart-line"></i> O impacto da sua doação</h2>
+            <div class="estatisticas">
+                <div class="estatistica-card">
+                    <div class="numero">4</div>
+                    <div class="texto">Vidas salvas por doação</div>
+                </div>
+                <div class="estatistica-card">
+                    <div class="numero">450ml</div>
+                    <div class="texto">Volume médio coletado</div>
+                </div>
+                <div class="estatistica-card">
+                    <div class="numero">3</div>
+                    <div class="texto">Doações por ano (máximo)</div>
+                </div>
+                <div class="estatistica-card">
+                    <div class="numero">15min</div>
+                    <div class="texto">Duração da doação</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chamada para Ação -->
+        <div class="chamada-acao">
+            <h2>Seja um herói! Doe sangue regularmente</h2>
+            <p>Sua doação é um gesto simples que tem um impacto extraordinário. Juntos, podemos fazer a diferença e
+                salvar vidas todos os dias.</p>
+            <button onclick="window.location.href='contato.html'">
+                <i class="fas fa-tint"></i> Quero Doar Agora!
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer>
+        <i class="fas fa-tint"></i> Doe Sangue, Salve Vidas
+        <br>
+        &copy; 2024 Doe Sangue. Todos os direitos reservados.
+    </footer>
+
+    <!-- ===== SCRIPT DE ANIMAÇÕES ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animação dos cards ao entrar na viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.animation = 'fadeIn 0.6s ease-out forwards';
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Observa todos os cards
+            document.querySelectorAll('.situacao-card, .estatistica-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Anima as listas de benefícios
+            const beneficiosItems = document.querySelectorAll('.beneficios-lista li');
+            beneficiosItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateX(-20px)';
+                    setTimeout(() => {
+                        item.style.transition = 'all 0.5s ease';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    }, index * 100);
+                }, 300);
+            });
+        });
+    </script>
 </body>
+
 </html>
