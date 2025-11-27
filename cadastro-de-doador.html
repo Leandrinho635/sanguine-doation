@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Doador - Doe Sangue</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #c92a2a;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #c92a2a 0%, #a61e1e 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-submit:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🩸 Quero Doar Sangue</h1>
+        <p class="subtitle">Preencha o formulário e entraremos em contato</p>
+        
+        <div id="message" class="message"></div>
+        
+        <form id="doadorForm">
+            <div class="form-group">
+                <label for="nome">Nome Completo *</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="telefone">Telefone/WhatsApp *</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(11) 98765-4321" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="tipo_sanguineo">Tipo Sanguíneo</label>
+                <select id="tipo_sanguineo" name="tipo_sanguineo">
+                    <option value="">Selecione (opcional)</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="Não sei">Não sei</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="cidade">Cidade *</label>
+                <input type="text" id="cidade" name="cidade" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="mensagem">Mensagem (opcional)</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Conte-nos mais sobre seu interesse em doar..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit" id="submitBtn">
+                Enviar Cadastro
+            </button>
+        </form>
+    </div>
+
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <script>
+        // SUBSTITUA ESTAS CREDENCIAIS PELAS SUAS DO SUPABASE
+        const SUPABASE_URL = 'SUA_URL_DO_SUPABASE_AQUI';
+        const SUPABASE_KEY = 'SUA_ANON_KEY_DO_SUPABASE_AQUI';
+        
+        // Inicializar o cliente Supabase
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        
+        // Elementos do DOM
+        const form = document.getElementById('doadorForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const messageDiv = document.getElementById('message');
+        
+        // Função para mostrar mensagens
+        function showMessage(text, type) {
+            messageDiv.textContent = text;
+            messageDiv.className = `message ${type}`;
+            messageDiv.style.display = 'block';
+            
+            // Scroll suave até a mensagem
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Esconder mensagem após 5 segundos
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Handler do formulário
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Desabilitar botão durante envio
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            
+            // Coletar dados do formulário
+            const formData = {
+                nome: document.getElementById('nome').value,
+                email: document.getElementById('email').value,
+                telefone: document.getElementById('telefone').value,
+                tipo_sanguineo: document.getElementById('tipo_sanguineo').value || null,
+                cidade: document.getElementById('cidade').value,
+                mensagem: document.getElementById('mensagem').value || null
+            };
+            
+            try {
+                // Inserir dados no Supabase
+                const { data, error } = await supabase
+                    .from('doadores')
+                    .insert([formData]);
+                
+                if (error) throw error;
+                
+                // Sucesso
+                showMessage('✅ Cadastro realizado com sucesso! Entraremos em contato em breve.', 'success');
+                form.reset();
+                
+            } catch (error) {
+                console.error('Erro ao cadastrar:', error);
+                showMessage('❌ Erro ao enviar cadastro. Por favor, tente novamente.', 'error');
+            } finally {
+                // Reabilitar botão
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar Cadastro';
+            }
+        });
+    </script>
+</body>
+</html>
