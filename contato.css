@@ -162,24 +162,66 @@ header h1:first-child {
   line-height: 1.8;
 }
 
-/* ===== FORMULÁRIO DE CONTATO ===== */
-.formulario-contato {
+/* ===== CONTAINER DO FORMULÁRIO ===== */
+.container {
   background-color: white;
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   margin-bottom: 40px;
+  animation: fadeIn 0.8s ease-out 0.2s both;
 }
 
-.formulario-contato h2 {
+.container h1 {
   color: #E63946;
-  font-size: 24px;
-  margin-bottom: 30px;
   text-align: center;
-  padding-bottom: 15px;
-  border-bottom: 3px solid #E63946;
+  margin-bottom: 10px;
+  font-size: 32px;
 }
 
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+/* ===== MENSAGENS DE FEEDBACK ===== */
+.message {
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  display: none;
+  font-size: 16px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 2px solid #c3e6cb;
+  border-left: 5px solid #28a745;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 2px solid #f5c6cb;
+  border-left: 5px solid #dc3545;
+}
+
+/* ===== FORMULÁRIO ===== */
 .form-group {
   margin-bottom: 25px;
 }
@@ -198,6 +240,7 @@ header h1:first-child {
 }
 
 .form-group input,
+.form-group select,
 .form-group textarea {
   width: 100%;
   padding: 14px;
@@ -206,29 +249,37 @@ header h1:first-child {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   transition: all 0.3s ease;
+  background-color: white;
 }
 
 .form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: #E63946;
   box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
 }
 
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
 .form-group textarea {
   resize: vertical;
-  min-height: 140px;
+  min-height: 120px;
 }
 
-.botao-enviar {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.botao-enviar button {
-  background: #E63946;
+/* ===== BOTÃO DE ENVIO ===== */
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #E63946 0%, #c92a2a 100%);
   color: white;
-  padding: 15px 50px;
+  padding: 16px;
   border: none;
   border-radius: 8px;
   font-size: 18px;
@@ -237,47 +288,25 @@ header h1:first-child {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+  margin-top: 10px;
 }
 
-.botao-enviar button:hover {
-  background-color: #A4161A;
-  transform: translateY(-3px);
+.btn-submit:hover {
+  background: linear-gradient(135deg, #c92a2a 0%, #A4161A 100%);
+  transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
 }
 
-.botao-enviar button:active {
-  transform: translateY(-1px);
+.btn-submit:active {
+  transform: translateY(0);
 }
 
-/* ===== MENSAGEM DE SUCESSO ===== */
-.mensagem-sucesso {
-  position: fixed;
-  bottom: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: white;
-  color: #333;
-  padding: 20px 30px;
-  border-radius: 12px;
-  font-size: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: bottom 0.5s ease, opacity 0.5s ease;
-  opacity: 0;
-  z-index: 1000;
-  border: 2px solid #28a745;
-}
-
-.mensagem-sucesso.show {
-  bottom: 30px;
-  opacity: 1;
-}
-
-.mensagem-sucesso i {
-  font-size: 24px;
-  color: #28a745;
+.btn-submit:disabled {
+  background: linear-gradient(135deg, #ccc 0%, #999 100%);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
 }
 
 /* ===== INFORMAÇÕES DE CONTATO ===== */
@@ -422,9 +451,13 @@ footer i {
   }
 
   .introducao,
-  .formulario-contato,
+  .container,
   .faq {
     padding: 25px;
+  }
+
+  .container h1 {
+    font-size: 26px;
   }
 
   .info-grid {
@@ -435,8 +468,37 @@ footer i {
     display: none;
   }
 
-  .botao-enviar button {
-    padding: 12px 35px;
+  .btn-submit {
+    padding: 14px;
     font-size: 16px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .conteudo-principal {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .container h1 {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
   }
 }
